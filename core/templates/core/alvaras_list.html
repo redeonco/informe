@@ -11,11 +11,6 @@
 <h1>Alvarás e Licenças de Funcionamento</h1>
 </div>
 <div class="div_select_list">
-    <a href="javascript:history.back()" class="icon-block">
-        <i class="far fa-arrow-alt-circle-left fa-2x"></i>
-    </a>
-    <br>
-    <br>
     <select name="filial" id="filial" onchange="filtraFilial()" class="form-select">
         <option disabled selected="selected">Selecione uma Filial</option>
         {% for filial in filial %}
@@ -43,4 +38,9 @@
     <br>
     <br>
 -->
+    </tbody>
+</table>
+<a href="javascript:history.back()" class="icon-block">
+    <i class="far fa-arrow-alt-circle-left fa-2x"></i>
+</a>
 {% endblock %}

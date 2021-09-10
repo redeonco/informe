@@ -11,11 +11,6 @@
 <h1>Formulários Padrão</h1>
 </div>
 <div class="div_select_list">
-    <a href="javascript:history.back()" class="icon-block">
-        <i class="far fa-arrow-alt-circle-left fa-2x"></i>
-    </a>
-    <br>
-    <br>
 <select name="departamentos" id="departamentos" onchange="filtraFormularios()" class="form-select">
     <option disabled selected="selected">Selecione um departamento</option>
     {% for departamento in departamentos %}
@@ -43,4 +38,9 @@
         </tr>
 {% endfor %}
 -->
+    </tbody>
+</table>
+<a href="javascript:history.back()" class="icon-block">
+    <i class="far fa-arrow-alt-circle-left fa-2x"></i>
+</a>
 {% endblock %}

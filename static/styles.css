@@ -25,6 +25,7 @@ img {
    margin-left: auto;
    margin-right: auto;
    filter: contrast(300%) saturate(0%) brightness(3);
+   animation: test 1s linear;
    transition: all .2s ease-in-out;
 }
 
@@ -76,6 +77,9 @@ button{
   outline:none;
   font-family: "Century Gothic", sans-serif;
   cursor: pointer;
+  filter: opacity(0%);
+  animation: test2 1s linear .35s;
+  animation-fill-mode: forwards;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -102,6 +106,9 @@ h1 {
     text-align: center;
     font-family: "Century Gothic", sans-serif;
     color:#FFF;
+    filter: opacity(0%);
+    animation: test2 1s linear .2s;
+    animation-fill-mode: forwards;
     transition: all .1s ease-in-out;
 }
 
@@ -120,7 +127,37 @@ h1:hover {
 
 i {
     text-align:center;
+    font-family: "Century Gothic", sans-serif;
     display: inline-block;
     width: 100%;
-    color: #FFF
+    transition: all .15s ease-in-out;
+    color: #344721
+}
+
+i:hover {
+    color:#FFFFFF;
+}
+
+@keyframes test {
+    0% {
+        filter: opacity(0%) contrast(100%) saturate(100%) brightness(1)
+    }
+    50% {
+        filter: opacity(50%) contrast(200%) saturate(50%) brightness(2)
+    }
+    100% {
+        filter: opacity(100%) contrast(300%) saturate(0%) brightness(3)
+    }
+}
+
+@keyframes test2 {
+    0% {
+        filter: opacity(0%)
+    }
+    50% {
+        filter: opacity(50%)
+    }
+    100% {
+        filter: opacity(100%)
+    }
 }
