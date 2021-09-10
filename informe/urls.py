@@ -22,3 +22,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.AdminSite.site_header = 'Informe - Rede Onco'
+admin.AdminSite.site_title = 'Informe - Rede Onco'
+admin.AdminSite.index_title = 'Gestão de Documentos'
