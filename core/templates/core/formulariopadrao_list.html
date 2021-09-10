@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block title %}Formulários Padrão | {% endblock %}
 
 {% block main %}
 <br>
@@ -9,12 +10,16 @@
 <div class="title">
 <h1>Formulários Padrão</h1>
 </div>
-<br>
 <div class="div_select_list">
+    <a href="javascript:history.back()" class="icon-block">
+        <i class="far fa-arrow-alt-circle-left fa-2x"></i>
+    </a>
+    <br>
+    <br>
 <select name="departamentos" id="departamentos" onchange="filtraFormularios()" class="form-select">
     <option disabled selected="selected">Selecione um departamento</option>
-    {% for departamento in object_list %}
-    <option value="{{ departamento.departamento.id }}"> {{ departamento.departamento }}</option>
+    {% for departamento in departamentos %}
+    <option value="{{ departamento.id }}"> {{ departamento.departamento }}</option>
     {% endfor %}
 </select>
 </div>

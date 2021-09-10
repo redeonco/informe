@@ -39,6 +39,7 @@ table {
 
 .linha_coluna {
     transition: all .15s ease-in-out;
+    cursor: pointer;
 }
 
 .linha_coluna:hover {
@@ -70,7 +71,7 @@ button{
   font-weight:300;
   letter-spacing:1px;
   border:none;
-  border-radius: 20px 3px 20px 3px;
+  border-radius: 20px 0 20px 0;
   font-size:18px;
   outline:none;
   font-family: "Century Gothic", sans-serif;
@@ -105,7 +106,7 @@ h1 {
 }
 
 h1:hover {
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .div_select_list {
@@ -115,4 +116,11 @@ h1:hover {
 
 .form-select {
     text-align-last:center;
+}
+
+i {
+    text-align:center;
+    display: inline-block;
+    width: 100%;
+    color: #FFF
 }
