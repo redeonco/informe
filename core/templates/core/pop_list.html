@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+{% for pop in object_list %}
+    <a href="{{ pop.arquivo.url }}">{{ pop }} | {{ pop.departamento }}</a>
+    <br>Data de publicação: {{ pop.data_publicacao }}
+    <br>Descrição: {{ pop.descricao }}
+    <br>
+    <br>
+{% endfor %}
+{% endblock %}

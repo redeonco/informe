@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+{% for i in object_list %}
+    <a href="{{ i.arquivo.url }}">{{ i }} | {{ i.filial }}</a>
+    <br>Data de vigência: {{ i.data_vigencia }}
+    <br>Data de publicação: {{ i.data_publicacao }}
+    <br>Descrição: {{ i.descricao }}
+    <br>
+    <br>
+{% endfor %}
+{% endblock %}
