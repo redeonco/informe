@@ -67,3 +67,19 @@ def suporte(request):
 
 class UtilitariosView(ListView):
     model = Utilitarios
+
+
+class SearchView(ListView):
+    model = FormularioPadrao
+    template_name = 'core/search.html'
+    context_object_name = 'all_search_results'
+
+    def get_queryset(self):
+        result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            postresult = FormularioPadrao.objects.filter(nome__contains=query)
+            result = postresult
+        else:
+            result = None
+        return result

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Pesquisar | {% endblock %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+<div class="title">
+<h1>Pesquisar</h1>
+</div>
+<div class="div_select_list">
+<form method="GET" action="" >
+    <input type="search" name="search">
+    <button type="submit"> Search </button>
+</form>
+</div>
+<br>
+<table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Data Publicação</th>
+        </tr>
+      </thead>
+    <tbody id="tabela">
+{% for result in all_search_results %}
+        <tr class="linha_coluna" onclick="window.location='{{ result.arquivo.url }}'">
+            <th scope="row"><a href="{{ formulario.arquivo.url }}" class="link">{{ result }}</a></th>
+            <td>{{ result.descricao }}</td>
+            <td>{{ result.data_publicacao }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+<a href="javascript:history.back()" class="icon-block">
+    <i class="far fa-arrow-alt-circle-left fa-2x"></i>
+</a>
+{% endblock %}
