@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import FormularioPadrao, POP, Alvaras, Departamentos, Filial
+from .models import FormularioPadrao, POP, Alvaras, Departamentos, Filial, Utilitarios
 
 from django.core import serializers
 from django.http import HttpResponse
@@ -59,3 +59,11 @@ def filtra_filial(request):
 
     qs_json = serializers.serialize('json', filial.alvaras_set.all())
     return HttpResponse(qs_json, content_type='application/json')
+
+
+def suporte(request):
+    return render(request, 'core/suporte.html')
+
+
+class UtilitariosView(ListView):
+    model = Utilitarios

@@ -69,3 +69,16 @@ class Alvaras(models.Model):
         verbose_name = 'Alvarás e Licenças de Funcionamento'
         verbose_name_plural = 'Alvarás e Licenças de Funcionamento'
 
+
+class Utilitarios(models.Model):
+    nome = models.CharField(max_length=100, verbose_name='Nome do Utilitário')
+    descricao = models.CharField(max_length=250, verbose_name='Descrição do Utilitário')
+    data_publicacao = models.DateTimeField(default=datetime.now, verbose_name='Data de Publicação')
+    arquivo = models.FileField(upload_to='utilitarios', verbose_name='Arquivo')
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name = 'Utilitário TI'
+        verbose_name_plural = 'Utilitários TI'

@@ -4,7 +4,8 @@ from .models import (
     FormularioPadrao,
     POP,
     Filial,
-    Alvaras
+    Alvaras,
+    Utilitarios
 )
 
 admin.site.register(Filial)
@@ -12,3 +13,4 @@ admin.site.register(Departamentos)
 admin.site.register(FormularioPadrao)
 admin.site.register(POP)
 admin.site.register(Alvaras)
+admin.site.register(Utilitarios)
