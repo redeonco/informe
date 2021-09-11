@@ -1,15 +1,16 @@
 function process_response(formularios){
     form_select = document.getElementById('tabela');
     form_select.innerHTML = '';
+    getUrl = window.location.host + "/media/"
 
     formularios.forEach(function(formularios){
         var tr = document.createElement("tr");
         tr.setAttribute('class','linha_coluna');
-        tr.setAttribute('onclick',"window.location='http://10.80.0.225:80/media/" + formularios.fields.arquivo + "'");
+        tr.setAttribute('onclick',"window.location='http://" + getUrl + formularios.fields.arquivo + "'");
         var th = document.createElement("th");
         th.setAttribute('scope','row')
         var a = document.createElement("a");
-        a.setAttribute('href',"http://10.80.0.225:80/media/" + formularios.fields.arquivo)
+        a.setAttribute('href',"http://" + getUrl + formularios.fields.arquivo)
         a.setAttribute('class','link')
         a.innerHTML = formularios.fields.nome
         var td1 = document.createElement("td");
@@ -45,15 +46,16 @@ function filtraFormularios(id){
 function process_response2(pops){
     pop_select = document.getElementById('tabela');
     pop_select.innerHTML = '';
+    getUrl = window.location.host + "/media/"
 
     pops.forEach(function(pops){
         var tr = document.createElement("tr");
         tr.setAttribute('class','linha_coluna');
-        tr.setAttribute('onclick',"window.location='http://10.80.0.225:80/media/" + pops.fields.arquivo + "'");
+        tr.setAttribute('onclick',"window.location='http://" + getUrl + pops.fields.arquivo + "'");
         var th = document.createElement("th");
         th.setAttribute('scope','row')
         var a = document.createElement("a");
-        a.setAttribute('href',"http://10.80.0.225:80/media/" + pops.fields.arquivo)
+        a.setAttribute('href',"http://" + getUrl + pops.fields.arquivo)
         a.setAttribute('class','link')
         a.innerHTML = pops.fields.nome
         var td1 = document.createElement("td");
@@ -91,15 +93,17 @@ function filtraPop(id){
 function process_response3(alvaras){
     alvaras_select = document.getElementById('tabela');
     alvaras_select.innerHTML = '';
+    getUrl = window.location.host + "/media/"
+    console.log(getUrl)
 
     alvaras.forEach(function(alvaras){
         var tr = document.createElement("tr");
         tr.setAttribute('class','linha_coluna');
-        tr.setAttribute('onclick',"window.location='http://10.80.0.225:80/media/" + alvaras.fields.arquivo + "'");
+        tr.setAttribute('onclick',"window.location='http://" + getUrl + alvaras.fields.arquivo + "'");
         var th = document.createElement("th");
         th.setAttribute('scope','row')
         var a = document.createElement("a");
-        a.setAttribute('href',"http://10.80.0.225:80/media/" + alvaras.fields.arquivo)
+        a.setAttribute('href', "http://" + getUrl + alvaras.fields.arquivo)
         a.setAttribute('class','link')
         a.innerHTML = alvaras.fields.nome
         var td1 = document.createElement("td");
