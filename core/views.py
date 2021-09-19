@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from .models import FormularioPadrao, POP, Alvaras, Departamentos, Filial, Utilitarios
+from django.db.models import Q
+from itertools import chain
 
 from django.core import serializers
 from django.http import HttpResponse
@@ -77,9 +79,13 @@ class SearchView(ListView):
     def get_queryset(self):
         result = super(SearchView, self).get_queryset()
         query = self.request.GET.get('search')
+
         if query:
-            postresult = FormularioPadrao.objects.filter(nome__contains=query)
-            result = postresult
+            pop = POP.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
+            alvaras = Alvaras.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
+            formularios = FormularioPadrao.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
+            utilitarios = Utilitarios.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
+            result = chain(pop, alvaras, formularios, utilitarios)
         else:
             result = None
         return result

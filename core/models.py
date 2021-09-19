@@ -1,5 +1,8 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
+from django.contrib import admin
+from simple_history.models import HistoricalRecords
 
 
 class Departamentos(models.Model):
@@ -30,6 +33,7 @@ class FormularioPadrao(models.Model):
     departamento = models.ForeignKey(Departamentos, verbose_name='Departamento', on_delete=models.PROTECT)
     data_publicacao = models.DateTimeField(default=datetime.now, verbose_name='Data de Publicação')
     arquivo = models.FileField(upload_to='formularios', verbose_name='Arquivo')
+    history = HistoricalRecords()
 
     def __str__(self):
         return self.nome
@@ -37,6 +41,12 @@ class FormularioPadrao(models.Model):
     class Meta:
         verbose_name = 'Formulário Padrão'
         verbose_name_plural = 'Formulários Padrão'
+
+    # Atribuir automaticamente usuário logado no campo "Publicado Por"
+    def save(self, request, commit=True):
+        user = self.request.user
+        self.publicado_por = user
+        super(FormularioPadrao, self).save(request, *args, **kwargs)
 
 
 class POP(models.Model):

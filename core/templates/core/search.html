@@ -13,8 +13,14 @@
 <div class="div_select_list">
 <form method="GET" action="" >
     <input type="search" name="search">
-    <button type="submit"> Search </button>
+    <button type="submit" class="pesquisar">
+        <i class="fas fa-search fa-2x"></i>
+    </button>
 </form>
+    <br>
+    {% if all_search_results %}
+        <h3> Exibindo resultados da busca.</h3>
+    {% endif %}
 </div>
 <br>
 <table class="table table-striped table-dark">
@@ -28,7 +34,7 @@
     <tbody id="tabela">
 {% for result in all_search_results %}
         <tr class="linha_coluna" onclick="window.location='{{ result.arquivo.url }}'">
-            <th scope="row"><a href="{{ formulario.arquivo.url }}" class="link">{{ result }}</a></th>
+            <th scope="row"><a href="{{ result.arquivo.url }}" class="link">{{ result }}</a></th>
             <td>{{ result.descricao }}</td>
             <td>{{ result.data_publicacao }}</td>
         </tr>
