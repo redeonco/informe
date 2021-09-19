@@ -10,9 +10,9 @@ django-extra-views==0.8.0
 django-filter==1.0.0
 django-mathfilters==1.0.0
 django-simple-history==3.0.0
-gunicorn==20.1.0
 httplib2==0.19.1
 idna==3.2
 importlib-metadata==3.10.1
 protobuf==3.17.3
 psycopg2>=2.8.6,<2.9
+uWSGI>=2.0.19.1,<2.1

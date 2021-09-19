@@ -1,7 +1,9 @@
 .idea
 *.sqlite3
-venv
+.env
+.venv
+env/
+venv/
 *.pyc
-gestao_rh/__pycache__/
 media
 /data
