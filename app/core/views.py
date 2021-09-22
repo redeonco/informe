@@ -81,10 +81,10 @@ class SearchView(ListView):
         query = self.request.GET.get('search')
 
         if query:
-            pop = POP.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
-            alvaras = Alvaras.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
-            formularios = FormularioPadrao.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
-            utilitarios = Utilitarios.objects.filter(Q(nome__contains=query) | Q(descricao__contains=query))
+            pop = POP.objects.filter(Q(nome__icontains=query) | Q(descricao__icontains=query))
+            alvaras = Alvaras.objects.filter(Q(nome__icontains=query) | Q(descricao__icontains=query))
+            formularios = FormularioPadrao.objects.filter(Q(nome__icontains=query) | Q(descricao__icontains=query))
+            utilitarios = Utilitarios.objects.filter(Q(nome__icontains=query) | Q(descricao__icontains=query))
             result = chain(pop, alvaras, formularios, utilitarios)
         else:
             result = None
